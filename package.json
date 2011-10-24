@@ -11,6 +11,9 @@
   "engines": {
     "node": "*"
   },
+  "bin": {
+    "snow": "snow.js"
+  },
   "dependencies": {},
   "devDependencies": {}
 }
