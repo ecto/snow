@@ -3,15 +3,18 @@ var cli = require('cli');
 var Snow = require('./snow');
 
 cli.parse({
-  emoji: ['e', 'Enable emoji snowflakes', 'boolean', false],
+  smear: ['s', 'Enable window smearing (Default is false)', 'boolean', false],
+  emoji: ['e', 'Enable emoji snowflakes (Default is false)', 'boolean', false],
   gustiness: ['g', 'Lateral movement multiplier', 'number', 5],
   fallMultiplier: ['f', 'Vertical movement multiplier', 'number', 2],
-  cleanWindow: ['c', 'Disable window smearing', 'boolean', true],
   flakesPerSecond: ['flakes', 'Flakes per second', 'number', 20],
   framesPerSecond: ['frames', 'Frames per second', 'number', 30],
 });
 
 cli.main(function (args, options) {
+  options.cleanWindow = !options.smear;
+  delete options.smear;
+
   var snow = new Snow(options);
   snow.init();
 
