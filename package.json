@@ -2,7 +2,7 @@
   "author": "Cam Pedersen <diffference@gmail.com> (http://campedersen.com/)",
   "name": "snow",
   "description": "SNOWFLAKES IN UR TERMINAL EATIN' UR MEMORY",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/ecto/snow.git"

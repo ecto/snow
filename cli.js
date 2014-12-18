@@ -2,9 +2,6 @@
 var cli = require('cli');
 var Snow = require('./snow');
 
-process.height = process.stdout.rows;
-process.width = process.stdout.columns;
-
 cli.parse({
   emoji: ['e', 'Enable emoji snowflakes', 'boolean', false],
   gustiness: ['g', 'Lateral movement multiplier', 'number', 5],
@@ -23,6 +20,14 @@ cli.main(function (args, options) {
     snow.pos(1, 1);
     process.stdout.write(snow.escape + '?25h');
     process.exit();
+  });
+
+  process.height = process.stdout.rows;
+  process.width = process.stdout.columns;
+
+  process.stdout.on('resize', function () {
+    process.height = process.stdout.rows;
+    process.width = process.stdout.columns;
   });
 });
 
