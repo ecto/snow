@@ -5,6 +5,7 @@ var Snow = require('./snow');
 cli.parse({
   smear: ['s', 'Enable window smearing (Default is false)', 'boolean', false],
   emoji: ['e', 'Enable emoji snowflakes (Default is false)', 'boolean', false],
+  rainbow: ['r', 'Enable rainbow snowflakes (Default is false)', 'boolean', false],
   gustiness: ['g', 'Lateral movement multiplier', 'number', 5],
   fallMultiplier: ['f', 'Vertical movement multiplier', 'number', 2],
   flakesPerSecond: ['flakes', 'Flakes per second', 'number', 20],

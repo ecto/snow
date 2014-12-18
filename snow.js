@@ -1,4 +1,5 @@
 var Flake = require('./flake');
+var colors = require('colors');
 
 var defaultOptions = {
   emoji: false,
@@ -8,6 +9,16 @@ var defaultOptions = {
   flakesPerSecond: 20,
   framesPerSecond: 30
 }
+
+var possibleColors = [
+  'red',
+  'green',
+  'yellow',
+  'blue',
+  'magenta',
+  'cyan',
+  'white'
+];
 
 function Snow (options) {
   this.options = options || defaultOptions;
@@ -29,6 +40,7 @@ function Snow (options) {
       '❄'
     ];
   }
+
 };
 
 Snow.prototype.init = function () {
@@ -54,7 +66,14 @@ Snow.prototype.render = function () {
     flake.shimmy();
 
     this.pos(flake.position.x,  flake.position.y);
-    process.stdout.write(flake.character);
+
+    if (!this.options.rainbow) {
+      process.stdout.write(flake.character);
+    } else {
+      var chosenColor = possibleColors[Math.floor(Math.random() * possibleColors.length)];
+      process.stdout.write(flake.character[chosenColor]);
+    }
+
   }
 };
 
